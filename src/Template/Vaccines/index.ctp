@@ -17,24 +17,24 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('id') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('dose') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+<!--                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>-->
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($vaccines as $vaccine): ?>
             <tr>
-                <td><?= $this->Number->format($vaccine->id) ?></td>
+                <!--<td><?= $this->Number->format($vaccine->id) ?></td>-->
                 <td><?= h($vaccine->name) ?></td>
                 <td><?= h($vaccine->dose) ?></td>
                 <td><?= h($vaccine->description) ?></td>
-                <td><?= h($vaccine->created) ?></td>
-                <td><?= h($vaccine->modified) ?></td>
+<!--                <td><?= h($vaccine->created) ?></td>
+                <td><?= h($vaccine->modified) ?></td>-->
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $vaccine->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $vaccine->id]) ?>

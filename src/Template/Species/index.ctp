@@ -15,22 +15,22 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('id') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+<!--                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>-->
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($species as $species): ?>
             <tr>
-                <td><?= $this->Number->format($species->id) ?></td>
+                <!--<td><?= $this->Number->format($species->id) ?></td>-->
                 <td><?= h($species->name) ?></td>
                 <td><?= h($species->description) ?></td>
-                <td><?= h($species->created) ?></td>
-                <td><?= h($species->modified) ?></td>
+<!--                <td><?= h($species->created) ?></td>
+                <td><?= h($species->modified) ?></td>-->
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $species->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $species->id]) ?>

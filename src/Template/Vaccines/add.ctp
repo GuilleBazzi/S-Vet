@@ -20,7 +20,7 @@
             echo $this->Form->control('name');
             echo $this->Form->control('dose');
             echo $this->Form->control('description');
-            echo $this->Form->control('pets._ids', ['options' => $pets]);
+            //echo $this->Form->control('pets._ids', ['options' => $pets]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
