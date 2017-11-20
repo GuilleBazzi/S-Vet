@@ -11,12 +11,14 @@
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
+    <?= $this->Form->create() ?>
     <fieldset>
         <legend><?= __('Inicio de Sesión') ?></legend>
         <?php
             echo $this->Form->control('user_name');
             echo $this->Form->control('password');
+//          EJEMPLO DE UN INPUT CON CLASES DE BOOTSTRAP
+//          echo $this->Form->control('password', ['class' => 'btn btn-primary']), ;
         ?>
     </fieldset>
     <?= $this->Form->button(__('Iniciar')) ?>

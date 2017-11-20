@@ -111,14 +111,18 @@ class UsersController extends AppController
     
     public function login()
     {
+        // Revisa si el usuario ya estaba logueado desde antes => V-7 10:03
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
+                $this->Flash->success('Sesión iniciada correctamente');
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error('Tu usuario o contraseña es incorrecta.');
         }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
     
     public function logout()
