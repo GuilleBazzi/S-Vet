@@ -52,8 +52,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+                
+                <!-- Acá va la magia de los botones de logout/login -->
+                <!-- ********************************************** -->
+                
+                <!-- Primero ponemos un IF-->
+                
+                <?php if ($this->request->session()->read('Auth.User.id')) { ?>
+                
+                <li>
+                    <a href="">
+                        <?= $this->request->session()->read('Auth.User.user_name') ?>
+                    </a>    
+                </li>
+                <li>
+                    <?= $this->html->link('Cerrar Sesión', ['controller'=>'users','action'=>'logout']) ?>
+                </li>
+                
+                <!-- Cierro el IF-->
+                <?php } ?>
             </ul>
         </div>
     </nav>
