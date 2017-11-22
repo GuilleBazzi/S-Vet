@@ -114,7 +114,7 @@ class UsersController extends AppController
         // Revisa si el usuario ya estaba logueado desde antes => V-7 10:03 y V-8 7:46
         if ($this->Auth->user('id')) {
             $this->Flash->error('No se puede volver a iniciar sesión: Hay una sesión iniciada actualmente.');
-            return $this->redirect(['controller'=>'users', 'action'=>'index']);
+            return $this->redirect(['controller'=>'Clients', 'action'=>'index']);
         }
         elseif ($this->request->is('post')) {
             $user = $this->Auth->identify();
@@ -125,8 +125,8 @@ class UsersController extends AppController
             }
             $this->Flash->error('Tu usuario o contraseña es incorrecta.');
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
+//        $this->set(compact('user'));
+//        $this->set('_serialize', ['user']);
     }
     
     public function logout()
