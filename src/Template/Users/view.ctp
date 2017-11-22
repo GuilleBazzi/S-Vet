@@ -22,9 +22,10 @@
             <div class="box box-info">
                 <div class="box-body">
                     <div class="col-sm-6">
-                        <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                        <div  align="center">
+                            <?= $this->Html->image('perfil.jpg', ['alt' => 'Foto de perfil', 'class'=>'img-circle img-responsive']) ?>
                             <input id="profile-image-upload" class="hidden" type="file">
-                            <div style="color:#999;" >click here to change profile image</div>
+                            <div style="color:#999;" >Haga click para cambiar la imagen</div>
                         <!--Upload Image Js And Css-->
                         </div>
                       <br>
@@ -64,14 +65,6 @@
             </div> 
             </div>
         </div>  
-        <script>
-            $(function() {
-            $('#profile-image1').on('click', function() {
-                $('#profile-image-upload').click();
-            });
-        });       
-        </script> 
-
     </div>
             
     

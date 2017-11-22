@@ -15,12 +15,12 @@
     <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('supervisor') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" width="5%"><?= $this->Paginator->sort('Id') ?></th>
+                <th scope="col" width="32%"><?= $this->Paginator->sort('Nombre') ?></th>
+                <th scope="col" width="23%"><?= $this->Paginator->sort('Usuario') ?></th>
+                <th scope="col" width="20%"><?= $this->Paginator->sort('Creado') ?></th>
+                <th scope="col" width="10%"><?= $this->Paginator->sort('Admin') ?></th>
+                <th scope="col" width="10%"class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -32,9 +32,25 @@
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->supervisor ? __('Si') : __('No')) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary btn-xs']) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class' => 'btn btn-success btn-xs']) ?>
-                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $user->id], ['class' => 'btn btn-danger btn-xs'], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Html->link(
+                            $this->Html->tag('span','',array('class'=>'glyphicon glyphicon-eye-open')),
+                            ['action' => 'view', $user->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Html->link(
+                            __('<span class="glyphicon glyphicon-pencil"></span>'),
+                            ['action' => 'edit', $user->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Form->postLink(
+                            __('<span class="glyphicon glyphicon-trash"></span>'),
+                            ['action' => 'delete', $user->id],
+                            ['escape' => false],
+                            ['confirm' => __('¿Está seguro que desea borrarlo? # {0}?', $user->id)]
+                            )
+                    ?>
                 </td>
             </tr>
             <?php endforeach; ?>
