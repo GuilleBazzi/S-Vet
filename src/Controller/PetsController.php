@@ -24,7 +24,18 @@ class PetsController extends AppController
 
         $this->set(compact('pets'));
         $this->set('_serialize', ['pets']);
-    }
+
+//        $pets = $this->paginate($this->Pets);
+//
+//        $this->loadModel('Species');
+//        $species = $this->Species->find('all');
+//        $this->set('species',$species);            
+//        
+//        $this->set(compact('pets', 'species'));
+//        $this->set('_serialize', ['pets', 'species']);
+
+
+        }
 
     /**
      * View method
