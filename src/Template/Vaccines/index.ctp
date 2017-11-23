@@ -4,26 +4,18 @@
  * @var \App\Model\Entity\Vaccine[]|\Cake\Collection\CollectionInterface $vaccines
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Vaccine'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pets'), ['controller' => 'Pets', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pet'), ['controller' => 'Pets', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?= $this->element('SideMenus/side_menu_logged_on') ?>
+
 <div class="vaccines index large-9 medium-8 columns content">
     <h3><?= __('Vaccines') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
                 <!--<th scope="col"><?= $this->Paginator->sort('id') ?></th>-->
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('dose') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-<!--                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>-->
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Dosis') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Descripción') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -33,8 +25,6 @@
                 <td><?= h($vaccine->name) ?></td>
                 <td><?= h($vaccine->dose) ?></td>
                 <td><?= h($vaccine->description) ?></td>
-<!--                <td><?= h($vaccine->created) ?></td>
-                <td><?= h($vaccine->modified) ?></td>-->
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $vaccine->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $vaccine->id]) ?>

@@ -19,6 +19,7 @@
         <?php
             echo $this->Form->control('id_client');
             echo $this->Form->control('id_species');
+            echo $this->Form->control('name');
             echo $this->Form->control('birthdate');
             echo $this->Form->control('gender');
             echo $this->Form->control('comment');

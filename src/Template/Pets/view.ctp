@@ -19,6 +19,10 @@
     <h3><?= h($pet->id) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($pet->name) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Gender') ?></th>
             <td><?= h($pet->gender) ?></td>
         </tr>

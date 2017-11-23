@@ -70,6 +70,10 @@ class PetsTable extends Table
             ->notEmpty('id_species');
 
         $validator
+            ->scalar('name')
+            ->allowEmpty('name');
+
+        $validator
             ->date('birthdate')
             ->requirePresence('birthdate', 'create')
             ->notEmpty('birthdate');

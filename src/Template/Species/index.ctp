@@ -4,22 +4,16 @@
  * @var \App\Model\Entity\Species[]|\Cake\Collection\CollectionInterface $species
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Species'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?= $this->element('SideMenus/side_menu_logged_on') ?>
+
 <div class="species index large-9 medium-8 columns content">
-    <h3><?= __('Species') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <h3><?= __('Especies') ?></h3>
+    <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
                 <!--<th scope="col"><?= $this->Paginator->sort('id') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-<!--                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>-->
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -29,8 +23,6 @@
                 <!--<td><?= $this->Number->format($species->id) ?></td>-->
                 <td><?= h($species->name) ?></td>
                 <td><?= h($species->description) ?></td>
-<!--                <td><?= h($species->created) ?></td>
-                <td><?= h($species->modified) ?></td>-->
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $species->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $species->id]) ?>

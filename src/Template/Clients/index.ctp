@@ -4,28 +4,23 @@
  * @var \App\Model\Entity\Client[]|\Cake\Collection\CollectionInterface $clients
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Client'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?= $this->element('SideMenus/side_menu_logged_on') ?>
+
 <div class="clients index large-9 medium-8 columns content">
-    <h3><?= __('Clients') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <h3><?= __('Clientes') ?></h3>
+    <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('dni') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('surname') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('telephone') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('address') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('birthdate') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Dni') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Apellido') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Email') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Telefono') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Dirección') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('F. Nac.') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Creado') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +35,6 @@
                 <td><?= h($client->address) ?></td>
                 <td><?= h($client->birthdate) ?></td>
                 <td><?= h($client->created) ?></td>
-                <td><?= h($client->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $client->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $client->id]) ?>

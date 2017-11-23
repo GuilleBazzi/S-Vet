@@ -4,15 +4,11 @@
  * @var \App\Model\Entity\PetsVaccine[]|\Cake\Collection\CollectionInterface $petsVaccines
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Pets Vaccine'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?= $this->element('SideMenus/side_menu_logged_on') ?>
+
 <div class="petsVaccines index large-9 medium-8 columns content">
     <h3><?= __('Pets Vaccines') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>

@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $id_client
  * @property int $id_species
+ * @property string $name
  * @property \Cake\I18n\FrozenDate $birthdate
  * @property string $gender
  * @property string $comment
@@ -33,6 +34,7 @@ class Pet extends Entity
     protected $_accessible = [
         'id_client' => true,
         'id_species' => true,
+        'name' => true,
         'birthdate' => true,
         'gender' => true,
         'comment' => true,
