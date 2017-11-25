@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\PetsVaccine[]|\Cake\Collection\CollectionInterface $petsVaccines
  */
 ?>
-<?= $this->element('SideMenus/side_menu_logged_on') ?>
 
 <div class="petsVaccines index large-9 medium-8 columns content">
     <h3><?= __('Pets Vaccines') ?></h3>

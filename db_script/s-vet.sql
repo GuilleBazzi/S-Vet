@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2017 at 11:01 PM
+-- Generation Time: Nov 25, 2017 at 11:40 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -248,7 +248,7 @@ ALTER TABLE `vaccines`
 -- AUTO_INCREMENT for table `care_record`
 --
 ALTER TABLE `care_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `clients`

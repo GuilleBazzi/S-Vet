@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\CareRecordController;
+use App\Controller\CareRecordsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\CareRecordController Test Case
+ * App\Controller\CareRecordsController Test Case
  */
-class CareRecordControllerTest extends IntegrationTestCase
+class CareRecordsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,7 +16,7 @@ class CareRecordControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.care_record'
+        'app.care_records'
     ];
 
     /**

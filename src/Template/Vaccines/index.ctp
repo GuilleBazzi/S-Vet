@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Vaccine[]|\Cake\Collection\CollectionInterface $vaccines
  */
 ?>
-<?= $this->element('SideMenus/side_menu_logged_on') ?>
 
 <div class="vaccines index large-9 medium-8 columns content">
     <h3><?= __('Vaccines') ?></h3>

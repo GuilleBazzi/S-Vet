@@ -4,18 +4,11 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * CareRecordFixture
+ * CareRecordsFixture
  *
  */
-class CareRecordFixture extends TestFixture
+class CareRecordsFixture extends TestFixture
 {
-
-    /**
-     * Table name
-     *
-     * @var string
-     */
-    public $table = 'care_record';
 
     /**
      * Fields
@@ -35,7 +28,7 @@ class CareRecordFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'care_record_ibfk_1' => ['type' => 'foreign', 'columns' => ['id_pet'], 'references' => ['pets', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'care_records_ibfk_1' => ['type' => 'foreign', 'columns' => ['id_pet'], 'references' => ['pets', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -53,10 +46,10 @@ class CareRecordFixture extends TestFixture
         [
             'id' => 1,
             'id_pet' => 1,
-            'date' => '2017-11-19',
+            'date' => '2017-11-25',
             'description' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-11-19 20:40:12',
-            'modified' => '2017-11-19 20:40:12'
+            'created' => '2017-11-25 10:43:57',
+            'modified' => '2017-11-25 10:43:57'
         ],
     ];
 }

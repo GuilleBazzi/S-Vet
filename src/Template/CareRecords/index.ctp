@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\CareRecord[]|\Cake\Collection\CollectionInterface $careRecord
+ * @var \App\Model\Entity\CareRecord[]|\Cake\Collection\CollectionInterface $careRecords
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
@@ -10,8 +10,8 @@
         <li><?= $this->Html->link(__('New Care Record'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="careRecord index large-9 medium-8 columns content">
-    <h3><?= __('Care Record') ?></h3>
+<div class="careRecords index large-9 medium-8 columns content">
+    <h3><?= __('Care Records') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($careRecord as $careRecord): ?>
+            <?php foreach ($careRecords as $careRecord): ?>
             <tr>
                 <td><?= $this->Number->format($careRecord->id) ?></td>
                 <td><?= $this->Number->format($careRecord->id_pet) ?></td>

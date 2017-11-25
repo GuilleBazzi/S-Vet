@@ -4,13 +4,13 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * CareRecord Controller
+ * CareRecords Controller
  *
- * @property \App\Model\Table\CareRecordTable $CareRecord
+ * @property \App\Model\Table\CareRecordsTable $CareRecords
  *
  * @method \App\Model\Entity\CareRecord[] paginate($object = null, array $settings = [])
  */
-class CareRecordController extends AppController
+class CareRecordsController extends AppController
 {
 
     /**
@@ -20,10 +20,10 @@ class CareRecordController extends AppController
      */
     public function index()
     {
-        $careRecord = $this->paginate($this->CareRecord);
+        $careRecords = $this->paginate($this->CareRecords);
 
-        $this->set(compact('careRecord'));
-        $this->set('_serialize', ['careRecord']);
+        $this->set(compact('careRecords'));
+        $this->set('_serialize', ['careRecords']);
     }
 
     /**
@@ -35,7 +35,7 @@ class CareRecordController extends AppController
      */
     public function view($id = null)
     {
-        $careRecord = $this->CareRecord->get($id, [
+        $careRecord = $this->CareRecords->get($id, [
             'contain' => []
         ]);
 
@@ -50,10 +50,10 @@ class CareRecordController extends AppController
      */
     public function add()
     {
-        $careRecord = $this->CareRecord->newEntity();
+        $careRecord = $this->CareRecords->newEntity();
         if ($this->request->is('post')) {
-            $careRecord = $this->CareRecord->patchEntity($careRecord, $this->request->getData());
-            if ($this->CareRecord->save($careRecord)) {
+            $careRecord = $this->CareRecords->patchEntity($careRecord, $this->request->getData());
+            if ($this->CareRecords->save($careRecord)) {
                 $this->Flash->success(__('The care record has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -73,12 +73,12 @@ class CareRecordController extends AppController
      */
     public function edit($id = null)
     {
-        $careRecord = $this->CareRecord->get($id, [
+        $careRecord = $this->CareRecords->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $careRecord = $this->CareRecord->patchEntity($careRecord, $this->request->getData());
-            if ($this->CareRecord->save($careRecord)) {
+            $careRecord = $this->CareRecords->patchEntity($careRecord, $this->request->getData());
+            if ($this->CareRecords->save($careRecord)) {
                 $this->Flash->success(__('The care record has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -99,8 +99,8 @@ class CareRecordController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $careRecord = $this->CareRecord->get($id);
-        if ($this->CareRecord->delete($careRecord)) {
+        $careRecord = $this->CareRecords->get($id);
+        if ($this->CareRecords->delete($careRecord)) {
             $this->Flash->success(__('The care record has been deleted.'));
         } else {
             $this->Flash->error(__('The care record could not be deleted. Please, try again.'));

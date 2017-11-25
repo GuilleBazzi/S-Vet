@@ -7,7 +7,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * CareRecord Model
+ * CareRecords Model
  *
  * @method \App\Model\Entity\CareRecord get($primaryKey, $options = [])
  * @method \App\Model\Entity\CareRecord newEntity($data = null, array $options = [])
@@ -19,7 +19,7 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class CareRecordTable extends Table
+class CareRecordsTable extends Table
 {
 
     /**
@@ -32,7 +32,7 @@ class CareRecordTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('care_record');
+        $this->setTable('care_records');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

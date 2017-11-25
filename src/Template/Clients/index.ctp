@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Client[]|\Cake\Collection\CollectionInterface $clients
  */
 ?>
-<?= $this->element('SideMenus/side_menu_logged_on') ?>
 
 <div class="clients index large-9 medium-8 columns content">
     <h3><?= __('Clientes') ?></h3>

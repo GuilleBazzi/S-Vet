@@ -76,6 +76,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
+        <!--Menú lateral para todos las páginas-->
+        <?= $this->element('SideMenus/side_menu_logged_on') ?>
         <?= $this->fetch('content') ?>
     </div>
     <footer>

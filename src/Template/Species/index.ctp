@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Species[]|\Cake\Collection\CollectionInterface $species
  */
 ?>
-<?= $this->element('SideMenus/side_menu_logged_on') ?>
 
 <div class="species index large-9 medium-8 columns content">
     <h3><?= __('Especies') ?></h3>

@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CareRecordTable;
+use App\Model\Table\CareRecordsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CareRecordTable Test Case
+ * App\Model\Table\CareRecordsTable Test Case
  */
-class CareRecordTableTest extends TestCase
+class CareRecordsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CareRecordTable
+     * @var \App\Model\Table\CareRecordsTable
      */
-    public $CareRecord;
+    public $CareRecords;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class CareRecordTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.care_record'
+        'app.care_records'
     ];
 
     /**
@@ -35,8 +35,8 @@ class CareRecordTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('CareRecord') ? [] : ['className' => CareRecordTable::class];
-        $this->CareRecord = TableRegistry::get('CareRecord', $config);
+        $config = TableRegistry::exists('CareRecords') ? [] : ['className' => CareRecordsTable::class];
+        $this->CareRecords = TableRegistry::get('CareRecords', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class CareRecordTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->CareRecord);
+        unset($this->CareRecords);
 
         parent::tearDown();
     }
