@@ -59,12 +59,20 @@ class ClientsTable extends Table
         $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name')
+            ->add('name', 'length',
+                ['rule' => ['lengthBetween', 2, 50],
+                'message' => 'El nombre debe contener entre 2 y 50 caracteres.'
+                ]);
 
         $validator
             ->scalar('surname')
             ->requirePresence('surname', 'create')
-            ->notEmpty('surname');
+            ->notEmpty('surname')
+            ->add('surname', 'length',
+                ['rule' => ['lengthBetween', 2, 50],
+                'message' => 'El apellido debe contener entre 2 y 50 caracteres.'
+                ]);
 
         $validator
             ->email('email')

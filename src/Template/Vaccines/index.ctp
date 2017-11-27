@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Vaccine[]|\Cake\Collection\CollectionInterface $vaccines
  */
+$this->assign('title', 'Vacunas')
 ?>
 
 <div class="vaccines index large-9 medium-8 columns content">

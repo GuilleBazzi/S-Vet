@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Client[]|\Cake\Collection\CollectionInterface $clients
  */
+$this->assign('title', 'Clientes')
 ?>
 
 <div class="clients index large-9 medium-8 columns content">
@@ -34,11 +35,32 @@
                 <td><?= h($client->address) ?></td>
                 <td><?= h($client->birthdate) ?></td>
                 <td><?= h($client->created) ?></td>
-                <td class="actions">
+<!--                <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $client->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $client->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $client->id], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id)]) ?>
-                </td>
+                </td>-->
+                <td class="actions">
+                    <?= $this->Html->link(
+                            $this->Html->tag('span','',array('class'=>'glyphicon glyphicon-eye-open')),
+                            ['action' => 'view', $client->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Html->link(
+                            __('<span class="glyphicon glyphicon-pencil"></span>'),
+                            ['action' => 'edit', $client->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Form->postLink(
+                            __('<span class="glyphicon glyphicon-trash"></span>'),
+                            ['action' => 'delete', $client->id],
+                            ['escape' => false],
+                            ['confirm' => __('¿Está seguro que desea borrarlo? # {0}?', $client->id)]
+                            )
+                    ?>
+                </td>                
             </tr>
             <?php endforeach; ?>
         </tbody>

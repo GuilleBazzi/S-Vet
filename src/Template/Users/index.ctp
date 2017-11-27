@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
+$this->assign('title', 'Usuarios')
 ?>
 
 <div class="users index large-9 medium-8 columns content">

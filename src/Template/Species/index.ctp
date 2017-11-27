@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Species[]|\Cake\Collection\CollectionInterface $species
  */
+$this->assign('title', 'Especies')
 ?>
 
 <div class="species index large-9 medium-8 columns content">
