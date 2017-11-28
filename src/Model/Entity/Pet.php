@@ -43,4 +43,13 @@ class Pet extends Entity
         'modified' => true,
         'vaccines' => true
     ];
+    
+    protected function _setGender($value)
+    {
+        if ($value == 'Macho'){
+            return 'M';
+        } else {
+            return 'H';
+        }
+    }    
 }

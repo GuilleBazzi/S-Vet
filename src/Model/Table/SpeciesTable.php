@@ -53,11 +53,13 @@ class SpeciesTable extends Table
 
         $validator
             ->scalar('name')
+            ->maxLength('name', 50)
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 
         $validator
             ->scalar('description')
+            ->maxLength('description', 255)
             ->requirePresence('description', 'create')
             ->notEmpty('description');
 

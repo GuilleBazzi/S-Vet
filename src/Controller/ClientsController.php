@@ -43,27 +43,20 @@ class ClientsController extends AppController
         $this->set('_serialize', ['client']);
         
         $this->loadModel('Pets');
+        $this->loadModel('Species');
+        
         $pets = $this->Pets->find('all', [
-            'conditions' => ['Pets.id_client =' => $id],
+            'conditions' => ['Pets.id_client =' => $id]
         ]);
         
-//$query = $articles->find()->contain(['Authors' => ['Addresses'], 'Comments' => ['Authors']
-//]);        
-
         
+        $pets->contain(['Species']);
+
+      
         $pets = $this->paginate($pets);
         $this->set('pets', $pets);
         $this->set(compact('pets'));
         $this->set('_serialize', ['pets']);
-                
-        // In a controller or table method.
-        //$query = $articles->find('all', [
-        //    'conditions' => ['Articles.created >' => new DateTime('-10 days')],
-        //    'contain' => ['Authors', 'Comments'],
-        //    'limit' => 10
-        //]);
-        
-        
     }
 
     /**

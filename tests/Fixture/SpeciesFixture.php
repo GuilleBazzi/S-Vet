@@ -42,8 +42,8 @@ class SpeciesFixture extends TestFixture
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-11-19 20:39:32',
-            'modified' => '2017-11-19 20:39:32'
+            'created' => '2017-11-28 00:11:28',
+            'modified' => '2017-11-28 00:11:28'
         ],
     ];
 }

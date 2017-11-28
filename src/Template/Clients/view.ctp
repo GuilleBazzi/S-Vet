@@ -57,10 +57,8 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('Id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('Cliente') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('Especie') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Especie') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('F. Nac') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Genero') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Comentario') ?></th>
@@ -71,18 +69,16 @@
         <tbody>
             <?php foreach ($pets as $pet): ?>
             <tr>
-                <td><?= $this->Number->format($pet->id) ?></td>
-                <td><?= $this->Number->format($pet->id_client) ?></td>
-                <td><?= $this->Number->format($pet->id_species) ?></td>
                 <td><?= h($pet->name) ?></td>
+                <td><?= h($pet->species->name) ?></td>
                 <td><?= h($pet->birthdate) ?></td>
                 <td><?= h($pet->gender) ?></td>
                 <td><?= h($pet->comment) ?></td>
                 <td><?= h($pet->aggressive ? __('Si') : __('No')) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pet->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pet->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $pet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pet->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Pets', 'action' => 'view', $pet->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Pets', 'action' => 'edit', $pet->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Pets', 'action' => 'delete', $pet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pet->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

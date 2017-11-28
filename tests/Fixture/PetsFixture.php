@@ -54,12 +54,12 @@ class PetsFixture extends TestFixture
             'id_client' => 1,
             'id_species' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
-            'birthdate' => '2017-11-22',
+            'birthdate' => '2017-11-28',
             'gender' => 'Lorem ipsum dolor sit ame',
             'comment' => 'Lorem ipsum dolor sit amet',
             'aggressive' => 1,
-            'created' => '2017-11-22 23:27:17',
-            'modified' => '2017-11-22 23:27:17'
+            'created' => '2017-11-28 00:34:52',
+            'modified' => '2017-11-28 00:34:52'
         ],
     ];
 }

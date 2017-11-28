@@ -40,9 +40,15 @@ class PetsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+//      Acá está parte de la magia!  
+        $this->belongsTo('Species', [
+            'foreignKey' => 'id_species'
+        ]);
+        
+        
         $this->belongsToMany('Vaccines', [
-            'foreignKey' => 'pet_id',
-            'targetForeignKey' => 'vaccine_id',
+            'foreignKey' => 'id_pet',
+            'targetForeignKey' => 'id_vaccine',
             'joinTable' => 'pets_vaccines'
         ]);
     }
@@ -71,6 +77,7 @@ class PetsTable extends Table
 
         $validator
             ->scalar('name')
+            ->maxLength('name', 50)
             ->allowEmpty('name');
 
         $validator
@@ -80,11 +87,13 @@ class PetsTable extends Table
 
         $validator
             ->scalar('gender')
+            ->maxLength('gender', 1)
             ->requirePresence('gender', 'create')
             ->notEmpty('gender');
 
         $validator
             ->scalar('comment')
+            ->maxLength('comment', 255)
             ->requirePresence('comment', 'create')
             ->notEmpty('comment');
 

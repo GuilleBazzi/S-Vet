@@ -6,47 +6,31 @@
 ?>
 
 <div class="pets view large-9 medium-8 columns content">
-    <h3><?= h($pet->id) ?></h3>
+    <h3><?= h($pet->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($pet->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Gender') ?></th>
+            <th scope="row"><?= __('Genero') ?></th>
             <td><?= h($pet->gender) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Comment') ?></th>
-            <td><?= h($pet->comment) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($pet->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id Client') ?></th>
-            <td><?= $this->Number->format($pet->id_client) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id Species') ?></th>
+            <th scope="row"><?= __('Especie') ?></th>
             <td><?= $this->Number->format($pet->id_species) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Birthdate') ?></th>
+            <th scope="row"><?= __('F. de Nac.') ?></th>
             <td><?= h($pet->birthdate) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
+            <th scope="row"><?= __('Creado') ?></th>
             <td><?= h($pet->created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($pet->modified) ?></td>
+            <th scope="row"><?= __('Aggressive') ?></th>
+            <td><?= $pet->aggressive ? __('Si') : __('No'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Aggressive') ?></th>
-            <td><?= $pet->aggressive ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Comentario') ?></th>
+            <td><?= h($pet->comment) ?></td>
         </tr>
     </table>
     <div class="related">

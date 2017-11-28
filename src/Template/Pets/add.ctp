@@ -14,7 +14,8 @@
             echo $this->Form->control('id_species');
             echo $this->Form->control('name');
             echo $this->Form->control('birthdate');
-            echo $this->Form->control('gender');
+            echo $this->Form->control('gender', ['options' => ['Macho', 'Hembra']]);
+//            echo $this->Form->control('gender');
             echo $this->Form->control('comment');
             echo $this->Form->control('aggressive');
             echo $this->Form->control('vaccines._ids', ['options' => $vaccines]);
