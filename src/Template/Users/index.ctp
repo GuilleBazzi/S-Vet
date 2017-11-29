@@ -8,6 +8,7 @@ $this->assign('title', 'Usuarios')
 
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
+    <?= $this->Html->link(__('Nuevo'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>

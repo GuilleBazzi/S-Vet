@@ -8,6 +8,7 @@ $this->assign('title', 'Especies')
 
 <div class="species index large-9 medium-8 columns content">
     <h3><?= __('Especies') ?></h3>
+    <?= $this->Html->link(__('Nuevo'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     <table cellpadding="0" cellspacing="0" class="table table-hover table-responsive">
         <thead>
             <tr>
@@ -24,9 +25,25 @@ $this->assign('title', 'Especies')
                 <td><?= h($species->name) ?></td>
                 <td><?= h($species->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $species->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $species->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $species->id], ['confirm' => __('Are you sure you want to delete # {0}?', $species->id)]) ?>
+                    <?= $this->Html->link(
+                            $this->Html->tag('span','',array('class'=>'glyphicon glyphicon-eye-open')),
+                            ['action' => 'view', $species->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Html->link(
+                            __('<span class="glyphicon glyphicon-pencil"></span>'),
+                            ['action' => 'edit', $species->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Form->postLink(
+                            __('<span class="glyphicon glyphicon-trash"></span>'),
+                            ['action' => 'delete', $species->id],
+                            ['escape' => false],
+                            ['confirm' => __('¿Está seguro que desea borrarlo? # {0}?', $species->id)]
+                            )
+                    ?>
                 </td>
             </tr>
             <?php endforeach; ?>

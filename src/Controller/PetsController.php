@@ -20,8 +20,9 @@ class PetsController extends AppController
      */
     public function index()
     {
-        $pets = $this->paginate($this->Pets);
-
+        $pets = $this->Pets->find('all');
+        $pets->contain(['Species']);
+        $pets = $this->paginate($pets);
         $this->set(compact('pets'));
         $this->set('_serialize', ['pets']);
 

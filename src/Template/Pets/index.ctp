@@ -26,16 +26,32 @@
             <tr>
                 <td><?= $this->Number->format($pet->id) ?></td>
                 <td><?= $this->Number->format($pet->id_client) ?></td>
-                <td><?= $this->Number->format($pet->id_species) ?></td>
+                <td><?= h($pet->species->name) ?></td>
                 <td><?= h($pet->name) ?></td>
                 <td><?= h($pet->birthdate) ?></td>
                 <td><?= h($pet->gender) ?></td>
                 <td><?= h($pet->comment) ?></td>
                 <td><?= h($pet->aggressive ? __('Si') : __('No')) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pet->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pet->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $pet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pet->id)]) ?>
+                    <?= $this->Html->link(
+                            $this->Html->tag('span','',array('class'=>'glyphicon glyphicon-eye-open')),
+                            ['action' => 'view', $pet->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Html->link(
+                            __('<span class="glyphicon glyphicon-pencil"></span>'),
+                            ['action' => 'edit', $pet->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Form->postLink(
+                            __('<span class="glyphicon glyphicon-trash"></span>'),
+                            ['action' => 'delete', $pet->id],
+                            ['escape' => false],
+                            ['confirm' => __('¿Está seguro que desea borrarlo? # {0}?', $pet->id)]
+                            )
+                    ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -40,10 +40,10 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authError' => 'Ups, parece que no estas autorizado a entrar ahí.',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -55,10 +55,12 @@ class AppController extends Controller
             'loginAction' => [
                 'controller' => 'Users',
                 'action' => 'login'
-            ],
-            'unauthorizedRedirect' => $this->referer() // Si no está autorizado,
-                            //el usuario regresa a la página que estaba
+            ]
+//            ,
+//            'unauthorizedRedirect' => $this->referer() // Si no está autorizado,
+//                            //el usuario regresa a la página que estaba
         ]);
+        
 
         // Permite ejecutar la acción display para que nuestros controladores de páginas
         // sigan funcionando.

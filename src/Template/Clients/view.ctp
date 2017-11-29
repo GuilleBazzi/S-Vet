@@ -75,11 +75,28 @@
                 <td><?= h($pet->gender) ?></td>
                 <td><?= h($pet->comment) ?></td>
                 <td><?= h($pet->aggressive ? __('Si') : __('No')) ?></td>
+
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Pets', 'action' => 'view', $pet->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Pets', 'action' => 'edit', $pet->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Pets', 'action' => 'delete', $pet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pet->id)]) ?>
-                </td>
+                    <?= $this->Html->link(
+                            $this->Html->tag('span','',array('class'=>'glyphicon glyphicon-eye-open')),
+                            ['controller' => 'Pets', 'action' => 'view', $pet->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Html->link(
+                            __('<span class="glyphicon glyphicon-pencil"></span>'),
+                            ['controller' => 'Pets', 'action' => 'edit', $pet->id],
+                            ['escape' => false]
+                            )
+                    ?>
+                    <?= $this->Form->postLink(
+                            __('<span class="glyphicon glyphicon-trash"></span>'),
+                            ['controller' => 'Pets', 'action' => 'view', $pet->id],
+                            ['escape' => false],
+                            ['controller' => 'Pets', 'action' => 'delete', $pet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pet->id)]
+                            )
+                    ?>
+                </td>                
             </tr>
             <?php endforeach; ?>
         </tbody>

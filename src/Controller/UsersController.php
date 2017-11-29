@@ -111,19 +111,21 @@ class UsersController extends AppController
     
     public function login()
     {
-        // Revisa si el usuario ya estaba logueado desde antes => V-7 10:03 y V-8 7:46
-        if ($this->Auth->user('id')) {
-            $this->Flash->error('No se puede volver a iniciar sesión: Hay una sesión iniciada actualmente.');
-            return $this->redirect(['controller'=>'Clients', 'action'=>'index']);
-        }
-        elseif ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                $this->Flash->success('Sesión iniciada correctamente');
-                return $this->redirect($this->Auth->redirectUrl());
+        if ($this->request->is('post')) {
+            
+            // Revisa si el usuario ya estaba logueado desde antes => V-7 10:03 y V-8 7:46
+            if ($this->Auth->user('id')) {
+                $this->Flash->error('No se puede volver a iniciar sesión: Hay una sesión iniciada actualmente.');
+                return $this->redirect(['controller'=>'Clients', 'action'=>'index']);
+            } else {
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
+                    $this->Flash->success('Sesión iniciada correctamente');
+                    return $this->redirect(['controller'=>'Clients', 'action'=>'index']);
+                }
+                $this->Flash->error('Tu usuario o contraseña es incorrecta.');
             }
-            $this->Flash->error('Tu usuario o contraseña es incorrecta.');
         }
 //        $this->set(compact('user'));
 //        $this->set('_serialize', ['user']);
