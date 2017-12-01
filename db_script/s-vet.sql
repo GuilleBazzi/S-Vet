@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2017 at 11:40 AM
+-- Generation Time: Dec 01, 2017 at 09:30 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `care_record`
+-- Table structure for table `care_records`
 --
 
-CREATE TABLE `care_record` (
+CREATE TABLE `care_records` (
   `id` int(11) NOT NULL,
   `id_pet` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -61,8 +61,20 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `dni`, `name`, `surname`, `email`, `telephone`, `address`, `birthdate`, `created`, `modified`) VALUES
-(1, 12345, 'Pedro', 'Gomez', 'pedrito@pedro.com', '1234', 'Calle Falsa 123', '2012-10-17', '2017-11-22 23:01:41', '2017-11-22 23:01:41'),
-(2, 32456756, 'Juan José', 'San Fernando', 'juanjo@losborbotones.com', '455654565', 'Independencia 666|', '2013-09-22', '2017-11-22 23:03:13', '2017-11-22 23:03:13');
+(1, 12345, 'Pedro', 'Gomez', 'pedrito@pedro.com', '1234', 'Calle Falsa 123', '1998-10-17', '2017-11-22 23:01:41', '2017-11-22 23:01:41'),
+(2, 32456756, 'Juan José', 'San Fernando', 'juanjo@losborbotones.com', '455654565', 'Independencia 666|', '1985-09-22', '2017-11-22 23:03:13', '2017-11-22 23:03:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deceaseds`
+--
+
+CREATE TABLE `deceaseds` (
+  `id` int(11) NOT NULL,
+  `id_pet` int(11) NOT NULL,
+  `cause` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -88,7 +100,13 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `id_client`, `id_species`, `name`, `birthdate`, `gender`, `comment`, `aggressive`, `created`, `modified`) VALUES
-(1, 1, 1, 'Juancho', '2013-12-12', 'M', 'Juancho es un perro muy amistoso', 0, '2017-11-22 23:32:46', '2017-11-22 23:32:46');
+(1, 1, 1, 'Juancho', '2013-12-12', 'M', 'Juancho es un perro muy amistoso', 0, '2017-11-22 23:32:46', '2017-11-22 23:32:46'),
+(2, 2, 2, 'Minino', '2012-04-18', 'H', 'Es una gata histérica, si puede te muerte y rasguña', 1, '2017-11-27 22:26:23', '2017-11-27 22:26:23'),
+(3, 1, 1, 'Perro1', '2017-11-27', 'M', 'Perro 1', 0, '2017-11-27 23:21:04', '2017-11-27 23:21:04'),
+(4, 1, 1, 'Perro2', '2017-11-27', 'M', 'Perro2', 0, '2017-11-27 23:21:27', '2017-11-27 23:21:27'),
+(5, 2, 1, 'Perro3', '2017-11-27', 'M', 'Perro3', 1, '2017-11-27 23:22:18', '2017-11-27 23:22:18'),
+(6, 2, 2, 'Gato1', '2017-11-27', 'M', 'Gato1', 0, '2017-11-27 23:22:44', '2017-11-27 23:22:44'),
+(7, 1, 2, 'Minina', '2017-11-28', 'H', 'una minina linda', 0, '2017-11-28 02:35:57', '2017-11-28 02:35:57');
 
 -- --------------------------------------------------------
 
@@ -105,6 +123,14 @@ CREATE TABLE `pets_vaccines` (
   `created` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `pets_vaccines`
+--
+
+INSERT INTO `pets_vaccines` (`id`, `id_pet`, `id_vaccine`, `date`, `expiration_date`, `created`, `modified`) VALUES
+(1, 1, 4, '2017-11-29', '2018-05-29', '2017-11-29 21:58:58', '2017-11-29 21:58:58'),
+(2, 1, 5, '2017-11-29', '2018-11-29', '2017-11-29 21:59:32', '2017-11-29 21:59:32');
 
 -- --------------------------------------------------------
 
@@ -193,9 +219,9 @@ INSERT INTO `vaccines` (`id`, `name`, `dose`, `description`, `created`, `modifie
 --
 
 --
--- Indexes for table `care_record`
+-- Indexes for table `care_records`
 --
-ALTER TABLE `care_record`
+ALTER TABLE `care_records`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pet` (`id_pet`);
 
@@ -205,6 +231,13 @@ ALTER TABLE `care_record`
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`),
   ADD KEY `dni` (`dni`);
+
+--
+-- Indexes for table `deceaseds`
+--
+ALTER TABLE `deceaseds`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pet` (`id_pet`);
 
 --
 -- Indexes for table `pets`
@@ -245,10 +278,10 @@ ALTER TABLE `vaccines`
 --
 
 --
--- AUTO_INCREMENT for table `care_record`
+-- AUTO_INCREMENT for table `care_records`
 --
-ALTER TABLE `care_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `care_records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -257,16 +290,22 @@ ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `deceaseds`
+--
+ALTER TABLE `deceaseds`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pets_vaccines`
 --
 ALTER TABLE `pets_vaccines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `species`
@@ -291,10 +330,16 @@ ALTER TABLE `vaccines`
 --
 
 --
--- Constraints for table `care_record`
+-- Constraints for table `care_records`
 --
-ALTER TABLE `care_record`
-  ADD CONSTRAINT `care_record_ibfk_1` FOREIGN KEY (`id_pet`) REFERENCES `pets` (`id`);
+ALTER TABLE `care_records`
+  ADD CONSTRAINT `care_records_ibfk_1` FOREIGN KEY (`id_pet`) REFERENCES `pets` (`id`);
+
+--
+-- Constraints for table `deceaseds`
+--
+ALTER TABLE `deceaseds`
+  ADD CONSTRAINT `deceaseds_ibfk_1` FOREIGN KEY (`id_pet`) REFERENCES `pets` (`id`);
 
 --
 -- Constraints for table `pets`

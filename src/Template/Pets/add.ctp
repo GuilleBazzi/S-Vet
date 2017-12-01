@@ -10,7 +10,7 @@
     <fieldset>
         <legend><?= __('Add Pet') ?></legend>
         <?php
-            echo $this->Form->control('id_client');
+            echo $this->Form->hidden('id_client', ['value'=>$id_client]);
             echo $this->Form->control('id_species');
             echo $this->Form->control('name');
             echo $this->Form->control('birthdate');
