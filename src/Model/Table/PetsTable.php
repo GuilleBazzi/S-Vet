@@ -45,6 +45,10 @@ class PetsTable extends Table
             'foreignKey' => 'id_species'
         ]);
         
+        $this->belongsTo('Clients', [
+            'foreignKey' => 'id_client'
+        ]);
+        
         
         $this->belongsToMany('Vaccines', [
             'foreignKey' => 'id_pet',

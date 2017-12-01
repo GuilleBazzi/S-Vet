@@ -54,6 +54,7 @@
 <!--Aquí van las mascotas-->
 <div class="pets index large-9 medium-8 columns content">
     <h3><?= __('Mascotas') ?></h3>
+    <?= $this->Html->link(__('Nueva'), ['controller' => 'Pets', 'action' => 'add', $client->id], ['class' => 'btn btn-primary']) ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

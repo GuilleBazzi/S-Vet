@@ -60,7 +60,7 @@ class PetsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_client = null)
     {
         $pet = $this->Pets->newEntity();
         if ($this->request->is('post')) {
@@ -73,8 +73,9 @@ class PetsController extends AppController
             $this->Flash->error(__('The pet could not be saved. Please, try again.'));
         }
         $vaccines = $this->Pets->Vaccines->find('list', ['limit' => 200]);
-        $this->set(compact('pet', 'vaccines'));
-        $this->set('_serialize', ['pet']);
+        $this->set('id_client', $id_client);
+        $this->set(compact('pet', 'vaccines', 'id_client'));
+        $this->set('_serialize', ['pet', 'id_client']);
     }
 
     /**
